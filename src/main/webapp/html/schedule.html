@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>录入今日任务</title>
+    <link href="../css/cookies.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h2 style="text-align: center">请录入今日任务</h2>
+<div>
+    <form enctype="application/x-www-form-urlencoded"
+          method="POST" action="../SaveInSession">
+        <label for="title">任务名称</label>
+        <input class="title" type="text" id="title" name="title" placeholder="任务名称...">
+
+        <label for="desc">任务具体内容
+            <textarea class="title desc" id="desc" name="desc" rows="5" cols="30"
+                      wrap="soft" placeholder="任务描述..."></textarea>
+        </label>
+
+        <input type="submit" value="提交">
+    </form>
+</div>
+</body>
+</html>
