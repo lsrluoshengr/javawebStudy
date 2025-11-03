@@ -12,6 +12,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+
+
 @WebServlet(value = "/Login",initParams = {@WebInitParam(name = "users",value = "admin,123,1",description = "用户名"),
         @WebInitParam(name = "passwords",value = "123456,ool,1",description = "密码"),
         @WebInitParam(name = "usertypes",value = "admin,user,admin",description = "用户类型")
@@ -80,16 +82,21 @@ public class Login extends HttpServlet {
                 ) {
                 resp.setContentType("text/html; charset=utf-8");
                 String message = "登录成功"+ username+"欢迎你"+","+ password+","+usertype;
-                resp.getWriter().println(message);
+//                resp.getWriter().println(message);
                 log(message);
+                req.getSession().setAttribute("username",username);
+                req.getRequestDispatcher("index.jsp").forward(req,resp);
                 return;
             }
 
         }
-        resp.setContentType("text/html; charset=utf-8");
-        String message = "登录失败"+ username+"欢迎你"+","+ password+","+usertype;
-        resp.getWriter().println(message);
-        log(message);
+resp.setContentType("text/html; charset=utf-8");
+resp.getWriter().println("<script>alert('登录失败：账号或密码错误!" + username + "," + password + "," + usertype + "'); window.location.href='loginer.jsp';</script>");
+
+
+
+
+
 
 
 
