@@ -18,6 +18,8 @@
 <a href="html/register.html">多文件上传</a><br/>
 <a href="html/downloader.html">下载</a><br/>
 
+<a href="vote.jsp">投票</a>
+
 <a href="RandomImage">随机图片</a><br/>
 <a href="html/schedule.html">cookies</a><br/>
 

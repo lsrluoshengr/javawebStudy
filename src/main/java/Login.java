@@ -5,10 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -43,30 +41,6 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doGet(req, resp);
-
-//        String username = req.getParameter("username");
-//        String password = req.getParameter("password");
-//        String gender = req.getParameter("gender");
-//        String birthday = req.getParameter("birthday");
-//
-//        String phone = req.getParameter("phone");
-//        String email = req.getParameter("email");
-//        String[] hobbies = req.getParameterValues("hobbies");
-//
-//        resp.setContentType("text/html; charset=utf-8");
-//
-//
-//        StringBuilder result = new StringBuilder();
-//        result.append("注册成功:<br>")
-//                .append("用户名: ").append(username).append("<br>")
-//                .append("密码: ").append(password).append("<br>")
-//                .append("性别: ").append(gender).append("<br>")
-//                .append("生日: ").append(birthday).append("<br>")
-//                .append("手机: ").append(phone).append("<br>")
-//                .append("邮箱: ").append(email).append("<br>")
-//                .append("爱好: ").append(hobbies != null ? Arrays.toString(hobbies) : "无").append("<br>");
-//
-//        resp.getWriter().println(result.toString());
     }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -82,7 +56,7 @@ public class Login extends HttpServlet {
                 ) {
                 resp.setContentType("text/html; charset=utf-8");
                 String message = "登录成功"+ username+"欢迎你"+","+ password+","+usertype;
-//                resp.getWriter().println(message);
+
                 log(message);
                 req.getSession().setAttribute("username",username);
                 req.getRequestDispatcher("index.jsp").forward(req,resp);
@@ -91,13 +65,7 @@ public class Login extends HttpServlet {
 
         }
 resp.setContentType("text/html; charset=utf-8");
-resp.getWriter().println("<script>alert('登录失败：账号或密码错误!" + username + "," + password + "," + usertype + "'); window.location.href='loginer.jsp';</script>");
-
-
-
-
-
-
+resp.getWriter().println("<script>alert('登录失败：账号或密码错误!" + username + "'); window.location.href='loginer.jsp';</script>");
 
 
     }
